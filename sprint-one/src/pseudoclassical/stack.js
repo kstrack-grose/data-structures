@@ -5,6 +5,20 @@ var Stack = function() {
   this.storage = {};
 };
 
-/* ?? Stack.prototype ?? */
+Stack.prototype = {
+	push: function(value) {
+		this.storage[this.length++] = value;
+	} ,
+	pop: function() {
+		if (this.length !== 0) {
+			this.length--;
+			return this.storage[this.length];
+		}
+	} ,
+	size: function() {
+		return this.length;
+	},
+	constructor: Stack
+}
 
 
