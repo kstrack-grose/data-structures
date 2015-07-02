@@ -13,7 +13,6 @@ var Stack = function() {
 
 var stackMethods = {
 	push: function(value) {
-		//this.length++;
 		this[this.length++] = value;
 	},
 	pop: function() {
@@ -27,13 +26,3 @@ var stackMethods = {
 	}
 };
 
-
-  // var anInstance = {
-  //   length: 0;
-  // };
-
-  // var storage = {};
-
-  // var push = function(value) {
-  //   this[length++] = value;
-  // }
