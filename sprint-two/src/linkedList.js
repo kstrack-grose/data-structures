@@ -27,11 +27,14 @@ var LinkedList = function(){
 
   list.contains = function(target){
     var curNode = list.head;
+    // debugger;
     while(curNode !== null) {
       if(curNode.value === target) {
-        return curNode;
+        return true;
       }
+      curNode = curNode.next;
     } 
+    return false;
   };
 
   return list;
