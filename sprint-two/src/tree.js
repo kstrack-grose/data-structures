@@ -36,8 +36,6 @@ treeMethods.contains = function(target){
 	searchChildren(this, target);
 
 	return result;
-
-//	return !!(searchChildren(this, target));
 };
 
 
