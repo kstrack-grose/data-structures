@@ -29,7 +29,7 @@ Graph.prototype.removeNode = function(node){
 
 Graph.prototype.hasEdge = function(fromNode, toNode){
 	var doesHaveEdge = false;
-	if(!!fromNode.edges[toNode]) {
+	if(!!this.nodes[fromNode].edges[toNode]) {
 		doesHaveEdge = true;
 	}
 	return doesHaveEdge;
