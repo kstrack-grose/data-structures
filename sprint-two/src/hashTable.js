@@ -9,9 +9,19 @@ HashTable.prototype.insert = function(key, value){
 	if(this._storage[index]=== undefined) {
 		this._storage[index] = LinkedList();
 	}
+  //find out whether or not this key exists in the linked list
+    //if yes, change value
+    var curNode = this._storage[index].head;
+    while(curNode !== null) {
+      if(curNode.value[0] !== key) {
+        curNode = curNode.next;
+      } else {
+        curNode.value[0] = value;
+      }
+    }
+    //if no, add
     //with value value
-    this._storage[index].addToTail({}); 
-    this._storage[index].tail.value[key] = value;
+    this._storage[index].addToTail([key, value]); 
 };
 
 HashTable.prototype.retrieve = function(key){
@@ -23,13 +33,13 @@ HashTable.prototype.retrieve = function(key){
   }
 
   while(curNode.next !== null) {
-  	if(curNode.value[key] !== undefined) {
-  		return curNode.value[key];
+  	if(curNode.value[0] === key) {
+  		return curNode.value[1];
   	}
   	curNode=curNode.next;
   }
-  if(curNode.value[key] !== undefined) {
-  	return curNode.value[key];
+  if(curNode.value[0] === key) {
+  	return curNode.value[1];
   }
   return null;
 };
