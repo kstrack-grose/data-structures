@@ -57,7 +57,20 @@ var BinarySearchTree = function(value){
 		return false;
 	};
 
-	tree.depthFirstLog = function(callback) {};
+	tree.depthFirstLog = function(callback) {
+		//callback on tree.value
+		callback(tree.value);
+	  //if tree.left child is not null
+	  if(tree.left !== null) {
+	  	tree.left.depthFirstLog(callback);
+	  }  
+	    //depthFirstLog(leftChild)
+	  //if tree.right child is not null
+	  if(tree.right !== null) {
+			tree.right.depthFirstLog(callback);
+			//depth first log(rightChild)
+	  }
+	};
 
 	//return the tree object
 	return tree;
@@ -66,4 +79,5 @@ var BinarySearchTree = function(value){
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ * O(log(n)) is the time complexity for all of the included methods.
  */
