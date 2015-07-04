@@ -43,9 +43,16 @@ Graph.prototype.addEdge = function(fromNode, toNode){
 };
 
 Graph.prototype.removeEdge = function(fromNode, toNode){
+	if(this.hasEdge(fromNode, toNode)) {
+		delete this.nodes[toNode].edges[fromNode];
+		delete this.nodes[fromNode].edges[toNode];
+	}
 };
 
 Graph.prototype.forEachNode = function(cb){
+	for(var vertice in this.nodes) {
+		cb(vertice);
+	}
 };
 
 /*
