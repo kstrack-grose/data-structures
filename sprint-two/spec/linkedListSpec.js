@@ -52,4 +52,12 @@ describe('linkedList', function() {
   });
 
   // add more tests here to test the functionality of linkedList
+  it('should remove a node in the middle of the linked list', function(){
+    linkedList.addToTail(7);
+    linkedList.addToTail(8);
+    linkedList.addToTail(9);
+    linkedList.removeNode(8);
+    expect(linkedList.contains(8)).to.equal(false);
+  });
+
 });
