@@ -18,6 +18,10 @@ HashTable.prototype.retrieve = function(key){
   var index = getIndexBelowMaxForKey(key, this._limit);
   var curNode = this._storage[index].head;
 
+  if(curNode === null) {
+  	return null;
+  }
+
   while(curNode.next !== null) {
   	if(curNode.value[key] !== undefined) {
   		return curNode.value[key];
@@ -33,7 +37,7 @@ HashTable.prototype.retrieve = function(key){
 HashTable.prototype.remove = function(key){
   var index = getIndexBelowMaxForKey(key, this._limit);
   var value = this.retrieve(key);
-  this._storage[index].removeNode(value);
+  this._storage[index].removeNode(value, key);
 };
 
 

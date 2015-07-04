@@ -25,11 +25,14 @@ var LinkedList = function(){
     }
   };
 
-  list.contains = function(target){
+  list.contains = function(target, key){
     var curNode = list.head;
     // debugger;
     while(curNode !== null) {
       if(curNode.value === target) {
+        return true;
+      }
+      if(curNode.value[key] === target) {
         return true;
       }
       curNode = curNode.next;
@@ -37,17 +40,19 @@ var LinkedList = function(){
     return false;
   };
 
-  list.removeNode = function(target) {
-    if(list.contains(target)) {
+  list.removeNode = function(target, key) {
+    if(list.contains(target, key)) {
       var curNode = list.head;
       //need to check head
-      if(curNode.value === target) {
-        list.removeHead;
+      if(curNode.value[key] === target) {
+        list.removeHead();
       } else {
         while(curNode.next.value !== target) {
           curNode = curNode.next;
         }
-        curNode.next = curNode.next.next;
+        if(curNode.next !== null) {
+          curNode.next = curNode.next.next;
+        }
       }
     }
   }
