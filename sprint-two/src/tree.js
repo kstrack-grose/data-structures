@@ -41,4 +41,7 @@ treeMethods.contains = function(target){
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ addChild: O(1)
+ contains: O(log(n)), we think--recursively searching through the tree is similar to BSTs, where the 
+           time complexity is O(log(n)), but there's also a for loop...so maybe more? O(n log(n))? 
  */
