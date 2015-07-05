@@ -60,4 +60,13 @@ describe('linkedList', function() {
     expect(linkedList.contains(8)).to.equal(false);
   });
 
+  it('should run a callback function on the value of each node in the linked list', function() {
+    linkedList.addToTail(7);
+    linkedList.addToTail(8);
+    linkedList.addToTail(9);
+    linkedList.each(function(value) {
+      console.log(value);
+    });
+  });
+
 });

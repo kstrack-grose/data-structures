@@ -42,15 +42,24 @@ describe('hashTable', function() {
   });
 
   // (Extra credit! Remove the extra "x" when you want the following tests to run)
-  xit('should double in size when needed', function() {
+  it('should double in size when needed', function() {
     _.each(people, function(person) {
       var firstName = person[0], lastName = person[1];
       hashTable.insert(firstName,lastName);
     });
     expect(hashTable._limit).to.equal(16);
+    expect(hashTable._numOfItems).to.equal(people.length);
   });
 
-  xit('should halve in size when needed', function() {
+  it('should have a proper implementation of num of items', function() {
+      _.each(people, function(person) {
+      var firstName = person[0], lastName = person[1];
+      hashTable.insert(firstName,lastName);
+    });
+    expect(hashTable._numOfItems).to.equal(people.length);
+  });
+
+  it('should halve in size when needed', function() {
     _.each(people, function(person) {
       var firstName = person[0], lastName = person[1];
       hashTable.insert(firstName,lastName);
@@ -62,5 +71,6 @@ describe('hashTable', function() {
     hashTable.remove('John');
     hashTable.remove('Mr.');
     expect(hashTable._limit).to.equal(8);
+    //expect(hashTable._numOfItems).to.equal(2);
   });
 });

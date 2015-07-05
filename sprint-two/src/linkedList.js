@@ -56,6 +56,16 @@ var LinkedList = function(){
     }
   };
 
+  list.each = function(callback) {
+    var curNode = list.head;
+    while (curNode !== null) {
+      if (curNode.value !== undefined) {
+        callback(curNode.value);
+      }
+      curNode = curNode.next;
+    }
+  }
+
   return list;
 };
 
